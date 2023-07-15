@@ -1,0 +1,67 @@
+ {% extends 'home.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename=('question.css'))}}">
+</head>
+
+<body>
+
+
+    <h2>Question</h2>
+    <h3>{{ question.question }}</h3>
+    <p>Posted by: {{ question.username }}</p>
+    <hr> {% if session.username %}
+    <h3>Answer</h3>
+    <form method="POST" action="{{ url_for('view_question', question_id=question.id) }}">
+        <textarea name="answer" required></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% else %}
+    <p>Please log in to answer the question.</p>
+    <p><a href="{{ url_for('login') }}">Login here</a></p>
+    {% endif %}
+    <hr>
+    <h3>Answers</h3>
+
+    {% for answer in answers %}
+    <p>{{ answer.answer }}</p>
+    <p>Posted by: {{ answer.username }}</p>
+    <p>Upvotes: {{ answer.upvotes }}</p>
+    <p>Downvotes: {{ answer.downvotes }}</p>
+    <p>Votes:{{ answer.upvotes - answer.downvotes }}</p>
+
+
+    <form action="{{ url_for('upvote_answer', answer_id=answer.id) }}" method="POST">
+        <button type="submit">Upvote</button>
+    </form><br>
+    <form action="{{ url_for('downvote_answer', answer_id=answer.id) }}" method="POST">
+        <button type="submit">Downvote</button>
+    </form>
+
+    <!-- {% for reply in answer.replies %}
+<p>{{ reply.reply }}</p>
+<p>Posted by: {{ reply.username }}</p>
+<p>Votes:{{ reply.upvotes }}+{{ reply.downvotes }}</p>
+<form action="{{ url_for('upvote_reply', reply_id=reply.id, answer_id=answer.id) }}" method="POST">
+    <button type="submit">Upvote</button>
+</form>
+<form action="{{ url_for('downvote_reply', reply_id=reply.id, answer_id=answer.id) }}" method="POST">
+    <button type="submit">Downvote</button>
+</form>
+{% endfor %} -->
+    <br>
+    <form action="{{ url_for('reply', answer_id=answer.id) }}" method="POST">
+        <textarea name="reply" placeholder="Your reply" required></textarea>
+        <button type="submit">Reply</button>
+    </form>
+
+    <a href="{{ url_for('view_answer_replies', question_id=question.id, answer_id=answer.id) }}">View Replies</a> {% endfor %}
+    <a href="{{url_for('questions')}}">Back</a> {% endblock %}
+</body>
+
+</html>

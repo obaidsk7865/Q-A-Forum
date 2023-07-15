@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename=('title.css'))}}">
+</head>
+
+
+<body>
+
+    <center>
+        <h1>Q&A FORUM</h1>
+        <br>
+        <a href="{{ url_for('registration') }}"><button class="btnstyle">Register</button></a>
+        <a href="{{ url_for('login') }}"><button class="btnstyle">Login</button></a>
+
+    </center>
+
+</body>
+
+</html>

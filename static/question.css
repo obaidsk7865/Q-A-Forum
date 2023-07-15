@@ -1,0 +1,108 @@
+/* Styling for the question */
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+
+/* Styling for the answer form */
+
+form textarea {
+    width: 50%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+form input[type="submit"] {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Styling for the login message */
+
+p.login-message {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+
+/* Styling for the replies section */
+
+h3.answers-heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+/* Styling for individual answers */
+
+div.answer {
+    margin-bottom: 20px;
+}
+
+div.answer p {
+    margin-bottom: 5px;
+}
+
+div.answer p.votes {
+    font-weight: bold;
+}
+
+
+/* Styling for the voting buttons */
+
+form.vote-form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+button.vote-button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Styling for the reply form */
+
+form.reply-form textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+form.reply-form button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Styling for the view replies link */
+
+a.view-replies {
+    color: #4CAF50;
+}

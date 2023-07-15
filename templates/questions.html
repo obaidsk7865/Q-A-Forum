@@ -1,0 +1,8 @@
+{% extends 'home.html' %} {% block content %}
+<h2>All Questions</h2>
+
+{% for question in questions %}
+
+<h3><a href="{{ url_for('view_question', question_id=question.id) }}">{{ question.question }}</a></h3>
+<p>Posted by: {{ question.username }}</p>
+<hr> {% endfor %} {% endblock %}
